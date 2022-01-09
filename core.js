@@ -47,11 +47,11 @@
   }
 
   var Counter__UUID = 0;
-  function __genUUID() {
+  function _genUUID() {
     Counter__UUID += 1;
     return Counter__UUID + '__' + Date.now() + '__' + Math.random();
   }
-  _AwextLib_.genUUID = __genUUID;
+  _AwextLib_.genUUID = _genUUID;
 
   function _blankFunction() { }
 
@@ -383,15 +383,15 @@
       }
     } else {
       Counter__AwextName += 1;
-      awextName = ['__unnamed_awext__', Counter__AwextName + '__' + __genUUID()];
+      awextName = ['__unnamed_awext__', Counter__AwextName + '__' + _genUUID()];
     }
     var __pathSeperator = createAwextOpt.pathSeperator || '.';
     var __destroyFunc = null;
-    var __INNER_EVENT_NAMESPACE = __genUUID();
+    var __INNER_EVENT_NAMESPACE = _genUUID();
     var __statecoreInstance = deps_Statecore.createStatecore({});
     var __initFunction = _isFunction(initArg) ? initArg : null;
     var __initObject = _isKeyValueObject(initArg) ? _objectAssign({}, initArg) : null;
-    var __unwatcherDefaultNS = 'default_ns__' + __genUUID();
+    var __unwatcherDefaultNS = 'default_ns__' + _genUUID();
     var __unwatchers = {};
     var __awextThis = {};
     _objectAssign(__awextThis, {
@@ -828,16 +828,6 @@
     return baseObject;
   }
   _AwextLib_.awextify = awextify;
-
-  function useUUID(React) {
-    var { useState } = React;
-    var [uuid, setUUID] = useState(0);
-    if (uuid === 0) {
-      setUUID(__genUUID());
-    }
-    return uuid;
-  }
-  _AwextLib_.useUUID = useUUID;
 
   return _objectAssign({}, _AwextLib_);
 }));
