@@ -22,6 +22,7 @@
   if (root && typeof root === 'object') {
     awextLib = awextLib || moduleFactory(root['statecore']);
     root['awext'] = awextLib;
+    root['Awext'] = awextLib;
   }
 }(function moduleFactory(deps_Statecore) {
   'use strict';
