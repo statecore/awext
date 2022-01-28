@@ -5,24 +5,23 @@
 
 (function moduleify(moduleFactory) {
   'use strict';
-
-  var awextLib = null;
-
+  var theLib = null;
   if (typeof define === 'function' && define.amd) {
-    define('awext', ['statecore'], function (dep1) {
-      awextLib = awextLib || moduleFactory(dep1);
-      return awextLib;
-    });
+    function moduleFactoryWrapper() {
+      theLib = theLib || moduleFactory.apply(this, arguments);
+      return theLib;
+    }
+    define('awext', ['statecore'], moduleFactoryWrapper);
+    define('Awext', ['statecore'], moduleFactoryWrapper);
   } else if (typeof module === 'object' && typeof exports === 'object') {
-    awextLib = awextLib || moduleFactory([require('statecore')]);
-    module.exports = awextLib;
+    theLib = theLib || moduleFactory(require('statecore'));
+    module.exports = theLib;
   }
-
   var root = (typeof window !== 'undefined' ? window : typeof self !== 'undefined' ? self : typeof global !== 'undefined' ? global : this);
   if (root && typeof root === 'object') {
-    awextLib = awextLib || moduleFactory(root['statecore']);
-    root['awext'] = awextLib;
-    root['Awext'] = awextLib;
+    theLib = theLib || moduleFactory(root['statecore']);
+    root['awext'] = theLib;
+    root['Awext'] = theLib;
   }
 }(function moduleFactory(deps_Statecore) {
   'use strict';
