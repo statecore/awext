@@ -54,6 +54,7 @@
   _AwextLib_.genUUID = _genUUID;
 
   function _blankFunction() { }
+  _AwextLib_.blankFunction = _blankFunction;
 
   function _isNone(value) {
     if (value === undefined || null === value) return true;
