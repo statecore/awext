@@ -1,0 +1,26 @@
+{
+  "name": "awext",
+  "version": "0.0.1",
+  "description": "The awesome-next generation state machine.",
+  "main": "awext.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/statecore/awext.git"
+  },
+  "keywords": [
+    "state",
+    "machine",
+    "statemachine",
+    "observe",
+    "observer"
+  ],
+  "author": "MrZenW.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/statecore/awext/issues"
+  },
+  "homepage": "https://github.com/statecore/awext#readme"
+}
